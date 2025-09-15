@@ -144,30 +144,30 @@ def generate_financial_data():
 main_df, dept_df = generate_financial_data()
 
 # Sidebar with enhanced filters
-st.sidebar.header("🎛️ Dashboard Controls")
+st.sidebar.header("Dashboard Controls")
 st.sidebar.markdown("---")
 
 # Time period filter
 time_period = st.sidebar.selectbox(
-    "📅 Time Period",
+    "Time Period",
     ["Last 3 Months", "Last 6 Months", "Last 12 Months", "All Time"],
     index=2
 )
 
 # Department filter
 department_filter = st.sidebar.multiselect(
-    "🏢 Departments",
+    "Departments",
     options=dept_df['Department'].unique(),
     default=dept_df['Department'].unique()
 )
 
 # Additional filters
-show_forecast = st.sidebar.checkbox("📈 Show 3-month Forecast", value=True)
-show_anomalies = st.sidebar.checkbox("🔍 Highlight Anomalies", value=True)
+show_forecast = st.sidebar.checkbox("Show 3-month Forecast", value=True)
+show_anomalies = st.sidebar.checkbox("Highlight Anomalies", value=True)
 
 # Scenario analysis controls
 st.sidebar.markdown("---")
-st.sidebar.subheader("🎯 Scenario Analysis")
+st.sidebar.subheader("Scenario Analysis")
 revenue_scenario = st.sidebar.slider(
     "Revenue Change (%)",
     min_value=-20,
@@ -184,7 +184,7 @@ expense_scenario = st.sidebar.slider(
 )
 
 st.sidebar.markdown("---")
-st.sidebar.info("💡 Use filters to customize your financial analysis")
+st.sidebar.info("Use filters to customize your financial analysis")
 
 # Filter data based on selections
 if time_period == "Last 3 Months":
@@ -221,7 +221,7 @@ st.markdown('<p class="sub-header">Advanced Financial Performance Monitoring & A
 
 # Show scenario info if active
 if revenue_scenario != 0 or expense_scenario != 0:
-    st.info(f"📊 **Scenario Active:** Revenue {revenue_scenario:+.0f}%, Expenses {expense_scenario:+.0f}%")
+    st.info(f"**Scenario Active:** Revenue {revenue_scenario:+.0f}%, Expenses {expense_scenario:+.0f}%")
 
 # Enhanced key metrics with trends
 col1, col2, col3, col4 = st.columns(4)
@@ -255,7 +255,7 @@ style_metric_cards()
 
 # Performance overview section
 st.markdown("---")
-st.subheader("📊 Performance Overview")
+st.subheader("Performance Overview")
 
 # Enhanced charts with multiple visualizations including Cash Flow
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["Trend Analysis", "Department Performance", "Financial Ratios", "Advanced Analytics", "Cash Flow Dashboard"])
@@ -426,7 +426,7 @@ with tab4:
     st.plotly_chart(fig_corr, use_container_width=True)
 
 with tab5:
-    st.subheader("💰 Cash Flow Analysis")
+    st.subheader("Cash Flow Analysis")
     
     col1, col2 = st.columns(2)
     
@@ -463,7 +463,7 @@ with tab5:
         st.plotly_chart(fig_net_cash, use_container_width=True)
     
     # Cash flow metrics
-    st.subheader("📊 Cash Flow Metrics")
+    st.subheader("Cash Flow Metrics")
     cash_col1, cash_col2, cash_col3, cash_col4 = st.columns(4)
     
     with cash_col1:
@@ -484,7 +484,7 @@ with tab5:
 
 # Data export and additional features
 st.markdown("---")
-st.subheader("📥 Data Management")
+st.subheader("Data Management")
 
 col1, col2 = st.columns(2)
 
@@ -494,7 +494,7 @@ with col1:
     csv_dept = filtered_dept.to_csv(index=False)
     
     st.download_button(
-        label="📊 Download Main Data (CSV)",
+        label="Download Main Data (CSV)",
         data=csv_main,
         file_name="financial_main_data.csv",
         mime="text/csv",
@@ -502,7 +502,7 @@ with col1:
     )
     
     st.download_button(
-        label="🏢 Download Department Data (CSV)",
+        label="Download Department Data (CSV)",
         data=csv_dept,
         file_name="financial_department_data.csv",
         mime="text/csv",
@@ -524,7 +524,7 @@ with col2:
     ))
 
 # Raw data view with enhanced options
-if st.checkbox("🔍 Show Detailed Data View"):
+if st.checkbox("Show Detailed Data View"):
     st.subheader("Detailed Financial Data")
     
     data_view = st.selectbox("Select Data View", ["Main Financial Data", "Department Data"])
@@ -545,14 +545,14 @@ if st.checkbox("🔍 Show Detailed Data View"):
 
 # Footer with additional information
 st.markdown("---")
-st.success("🚀 Dashboard successfully loaded with enhanced features!")
+st.success("Dashboard successfully loaded with enhanced features!")
 st.info("""
 **New Features Added:**
-- 📈 Advanced visualizations with interactive tabs
-- 🔍 Enhanced filtering and analytics
-- 📊 Multiple chart types and heatmaps
-- 📥 Improved data export options
-- 🎨 Professional styling and UX improvements
+- Advanced visualizations with interactive tabs
+- Enhanced filtering and analytics
+- Multiple chart types and heatmaps
+- Improved data export options
+- Professional styling and UX improvements
 """)
 
-st.warning("📊 This dashboard uses auto-generated financial data for demonstration purposes. Connect to your real data source for production use.")
+st.warning("This dashboard uses auto-generated financial data for demonstration purposes. Connect to your real data source for production use.")
