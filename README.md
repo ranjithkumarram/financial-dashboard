@@ -121,11 +121,11 @@ This dashboard can be deployed on:
 
 ## Dependencies
 
-- streamlit==1.28.0
-- pandas==2.0.3
-- numpy==1.24.3
-- plotly==5.15.0
-- streamlit-extras==0.3.0
+- streamlit>=1.35.0
+- pandas>=2.0.0
+- numpy>=1.24.0
+- plotly>=5.15.0
+- streamlit-extras>=0.4.0
 
 ## License
 
