@@ -71,10 +71,8 @@ A comprehensive financial performance monitoring dashboard built with Streamlit,
    streamlit run app.py
    ```
 
-### Method 2: Using run scripts
-- **Windows (CMD)**: Double-click `run.bat` or run it from command prompt
-- **Windows (PowerShell)**: Right-click `run.ps1` and select "Run with PowerShell"
-- **Note**: If you get a PowerShell execution policy error, run: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
+### Method 2: Using run script (Windows)
+- Double-click `run.bat` or run it from command prompt
 
 The dashboard will open in your default web browser at `http://localhost:8501`
 
